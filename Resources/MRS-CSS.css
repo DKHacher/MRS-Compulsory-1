@@ -13,6 +13,9 @@
     -fx-background-radius: 15;
 }
 
+.Hbox {
+    -fx-spacing: 5;
+}
 
 .table-view {
     -fx-background-color: linear-gradient(from 0% 0% to 0% 100%, #131414, #0b0b0b);
