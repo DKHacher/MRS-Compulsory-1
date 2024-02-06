@@ -124,3 +124,5 @@
       # End of https://www.toptal.com/developers/gitignore/api/intellij
 .idea/misc.xml
 *.xml
+*.iml
+*.xml
