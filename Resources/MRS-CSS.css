@@ -13,8 +13,17 @@
     -fx-background-radius: 15;
 }
 
+
+.hamburger-menu {
+    -fx-background-color: transparent;
+}
+
 .Hbox {
     -fx-spacing: 5;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: linear-gradient(from 0% 0% to 0% 100%, #131414, #0b0b0b);
 }
 
 .table-view {
@@ -109,3 +118,8 @@
 .choice-box .context-menu {
     -fx-background-color: #383b3b;
 }
+
+.shape {
+    -fx-fill: #131414;
+}
+
