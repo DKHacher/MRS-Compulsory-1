@@ -17,7 +17,7 @@
          <children>
             <ImageView fitHeight="91.0" fitWidth="91.0" layoutX="401.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../Resources/Graphics/Icon.png" />
+                  <Image url="@Graphics/Icon.png" />
                </image>
             </ImageView>
             <Button layoutX="353.0" layoutY="358.0" mnemonicParsing="false" onAction="#logIn" text="Login" />
