@@ -18,7 +18,7 @@
          <graphic>
             <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Graphics/hamburger_menu.png" />
+                  <Image url="@../../../../../Resources/Graphics/hamburger_menu.png" />
                </image>
             </ImageView>
          </graphic>
@@ -35,7 +35,7 @@
       </Label>
       <ImageView fitHeight="31.0" fitWidth="51.0" layoutX="851.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Graphics/Icon.png" />
+            <Image url="@../../../../../Resources/Graphics/Icon.png" />
          </image>
       </ImageView>
       <ScrollPane layoutX="29.0" layoutY="92.0" minHeight="-Infinity" prefHeight="154.0" prefWidth="834.0">
@@ -44,12 +44,12 @@
                <children>
                   <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@Movies/Movie_1.png" />
+                        <Image url="@../../../../../Resources/Movies/Movie_1.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@Movies/movie_2.jpg" />
+                        <Image url="@../../../../../Resources/Movies/movie_2.jpg" />
                      </image>
                   </ImageView>
                </children>
@@ -62,12 +62,12 @@
                <children>
                   <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@Movies/Movie_1.png" />
+                        <Image url="@../../../../../Resources/Movies/Movie_1.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@Movies/movie_2.jpg" />
+                        <Image url="@../../../../../Resources/Movies/movie_2.jpg" />
                      </image>
                   </ImageView>
                </children>
