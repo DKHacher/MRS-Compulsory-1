@@ -128,3 +128,7 @@
     -fx-fill: #131414;
 }
 
+.stack-pane {
+    -fx-background-color: #0b0b0b;
+    -fx-text-fill: white;
+}

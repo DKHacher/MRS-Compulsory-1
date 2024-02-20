@@ -3,9 +3,19 @@ package dk.easv.presentation.controller;
 import dk.easv.entities.*;
 import dk.easv.presentation.model.AppModel;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
+import javafx.event.ActionEvent;
 
+
+import javafx.scene.control.Button;
+import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 
@@ -20,6 +30,11 @@ public class AppController implements Initializable {
     private ListView<UserSimilarity> lvTopSimilarUsers;
     @FXML
     private ListView<TopMovie> lvTopFromSimilar;
+    @FXML
+    private StackPane sideMenuPane;
+    @FXML
+    private Button hamburgerButton, logOutBtn;
+
 
 
     private AppModel model;
@@ -61,4 +76,32 @@ public class AppController implements Initializable {
         // Select the logged-in user in the listview, automagically trigger the listener above
         lvUsers.getSelectionModel().select(model.getObsLoggedInUser());
     }
+
+
+    @FXML
+    private void handleHamburgerButtonAction(ActionEvent actionEvent) {
+        sideMenuPane.setVisible(!sideMenuPane.isVisible());
+    }
+
+    @FXML
+    private void logOut(ActionEvent event) {
+        try {
+            // Load the login page
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/LoginPage.fxml"));
+            Parent root = loader.load();
+
+            // Get the current stage (window) from any control
+            Stage stage = (Stage) sideMenuPane.getScene().getWindow();
+
+            // Set the login scene on the current stage
+            stage.setScene(new Scene(root));
+            stage.setTitle("Login");
+            stage.centerOnScreen(); // To center the login page
+        } catch (IOException e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Could not load the login page.");
+            alert.showAndWait();
+        }
+    }
+
 }
