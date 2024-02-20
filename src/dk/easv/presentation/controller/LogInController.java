@@ -35,31 +35,35 @@ public class LogInController implements Initializable {
     public void logIn(ActionEvent actionEvent) {
         model.loadUsers();
         model.loginUserFromUsername(userId.getText());
-        if(model.getObsLoggedInUser()!=null){
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/MainPage.fxml"));
-            Parent root = loader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Movie Recommendation System 0.01 Beta");
-            stage.show();
-            AppController controller = loader.getController();
+        if (model.getObsLoggedInUser() != null) {
+            try {
+                // Load the main page
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/MainPage.fxml"));
+                Parent root = loader.load();
 
-            controller.setModel(model);
+                // Get the current stage (window) from the action event
+                Stage stage = (Stage) logInButton.getScene().getWindow();
 
+                // Set the new scene on the current stage
+                stage.setScene(new Scene(root));
+                stage.setTitle("MovieToons");
+                stage.centerOnScreen();
 
-        } catch (IOException e) {
-            e.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Could not load App.fxml");
-            alert.showAndWait();
-        }
+                //Pass data to main page controller
+                AppController controller = loader.getController();
+                controller.setModel(model);
 
-        }
-        else{
+            } catch (IOException e) {
+                e.printStackTrace();
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Could not load MainPage.fxml");
+                alert.showAndWait();
+            }
+        } else {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Wrong username or password");
             alert.showAndWait();
         }
     }
+
 
     public void signUp(ActionEvent actionEvent) {
         System.out.println("Sign-Up");
