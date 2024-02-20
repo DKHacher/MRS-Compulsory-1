@@ -22,9 +22,14 @@
     -fx-spacing: 5;
 }
 
-.scroll-pane > .viewport {
-    -fx-background-color: linear-gradient(from 0% 0% to 0% 100%, #131414, #0b0b0b);
+.scroll-pane {
+    -fx-background-color: transparent;
 }
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
 
 .table-view {
     -fx-background-color: linear-gradient(from 0% 0% to 0% 100%, #131414, #0b0b0b);
