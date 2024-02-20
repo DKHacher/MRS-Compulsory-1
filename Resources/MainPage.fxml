@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="585.0" prefWidth="896.0" styleClass="anchor" stylesheets="@MRS-CSS.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainPage">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="896.0" styleClass="anchor" stylesheets="@MRS-CSS.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.easv.presentation.controller.AppController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="60.0" layoutY="-21.0" stroke="BLACK" strokeType="INSIDE" styleClass="shape" width="896.0" />
       <Button layoutY="-1.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="38.0" styleClass="hamburger-menu">
@@ -37,7 +37,7 @@
             <Image url="@Graphics/Icon.png" />
          </image>
       </ImageView>
-      <ScrollPane layoutX="31.0" layoutY="78.0" minHeight="-Infinity" prefHeight="154.0" prefWidth="834.0">
+      <ScrollPane layoutX="31.0" layoutY="78.0" minHeight="-Infinity" prefHeight="170.0" prefWidth="834.0">
          <content>
             <HBox prefHeight="152.0" prefWidth="990.0" styleClass="Hbox">
                <children>
@@ -95,7 +95,7 @@
             </HBox>
          </content>
       </ScrollPane>
-      <ScrollPane layoutX="31.0" layoutY="279.0" minHeight="-Infinity" prefHeight="154.0" prefWidth="834.0">
+      <ScrollPane layoutX="31.0" layoutY="279.0" minHeight="-Infinity" prefHeight="170.0" prefWidth="834.0">
          <content>
             <HBox prefHeight="152.0" prefWidth="990.0" styleClass="Hbox">
                <children>
