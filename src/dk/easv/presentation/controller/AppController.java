@@ -78,6 +78,21 @@ public class AppController implements Initializable {
         movieListSimilar = model.getObsTopMoviesSimilarUsers();
         movieListCrowd = model.getObsTopMovieNotSeen();
 
+        /*
+        the loops are seperated to test the data
+        in a final product we would make it loop
+        based on the actual lists that contain the movies
+
+
+        the movie images are also random, because we couldn't get
+        an image for every movie in the list, if this were a end of
+        semester exam project, we would endeavor to get as many movie
+        pictures for the project as possible, and link them together wherever necessary
+
+        missing adding function on click for image views, minor detail
+        */
+
+        //this is the loop for Similar movies
         for (int i = 0; i< 20; i++){
             Image image;
             ImageView pic;
@@ -93,6 +108,24 @@ public class AppController implements Initializable {
             pic.setFitWidth(150);
             pic.setFitHeight(140);
             similarHBox.getChildren().add(pic);
+        }
+
+        //the same loop for Crowd Favourites
+        for (int i = 0; i< 20; i++){
+            Image image;
+            ImageView pic;
+            Random rng = new Random();
+            int rnd = rng.nextInt(0,11);
+            if (rnd == 1 || rnd == 8){
+                image = new Image("Movies/Movie_"+rnd+".png");
+            }
+            else{
+                image = new Image("Movies/Movie_"+rnd+".jpg");
+            }
+            pic = new ImageView(image);
+            pic.setFitWidth(150);
+            pic.setFitHeight(140);
+            crowdHBox.getChildren().add(pic);
         }
 
 

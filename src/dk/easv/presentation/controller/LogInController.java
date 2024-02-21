@@ -41,6 +41,8 @@ public class LogInController implements Initializable {
         if (model.getObsLoggedInUser() != null) {
             // Use the transition method to switch scenes after successful login
             switchSceneWithFade("/MainPage.fxml", "MovieToons");
+
+
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Wrong username or password");
             alert.showAndWait();
@@ -64,6 +66,10 @@ public class LogInController implements Initializable {
 
                 Scene scene = new Scene(root);
                 scene.setFill(javafx.scene.paint.Color.valueOf("#131414"));
+
+                AppController controller = loader.getController();
+
+                controller.setModel(model);
 
                 // Prepare fade in transition for new scene
                 FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.5), root);
