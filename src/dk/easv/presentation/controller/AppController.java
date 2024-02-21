@@ -106,5 +106,22 @@ public class AppController implements Initializable {
 
     @FXML
     private void accountDetails(ActionEvent actionEvent) {
+        try {
+            // Load the login page
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/AccountPage.fxml"));
+            Parent root = loader.load();
+
+            // Get the current stage (window) from any control
+            Stage stage = (Stage) sideMenuPane.getScene().getWindow();
+
+            // Set the login scene on the current stage
+            stage.setScene(new Scene(root));
+            stage.setTitle("Account");
+            stage.centerOnScreen(); // To center the page
+        } catch (IOException e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Could not load the login page.");
+            alert.showAndWait();
+        }
     }
 }

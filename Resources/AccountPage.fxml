@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="896.0" styleClass="anchor" stylesheets="@MRS-CSS.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.easv.presentation.controller.AppController">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="896.0" styleClass="anchor" stylesheets="@MRS-CSS.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.easv.presentation.controller.AccountController">
    <children>
       <Label layoutX="68.0" layoutY="78.0" text="Account" textFill="WHITE">
          <font>
@@ -17,8 +17,7 @@
          </font>
       </Label>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="60.0" layoutY="-21.0" stroke="BLACK" strokeType="INSIDE" styleClass="shape" width="896.0" />
-      <Button fx:id="hamburgerButton" layoutY="-1.0" mnemonicParsing="false" onAction="#handleHamburgerButtonAction" prefHeight="38.0" prefWidth="38.0" styleClass="hamburger-menu" />
-      <Label layoutX="19.0" layoutY="11.0" text="MovieToons" textFill="WHITE">
+       <Label layoutX="19.0" layoutY="11.0" text="MovieToons" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
