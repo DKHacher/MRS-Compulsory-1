@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="896.0" styleClass="anchor" stylesheets="@MRS-CSS.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.easv.presentation.controller.AppController">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="902.0" styleClass="anchor" stylesheets="@MRS-CSS.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.easv.presentation.controller.AppController">
    <children>
       <Label layoutX="31.0" layoutY="55.0" text="You might like:" textFill="WHITE">
          <font>
