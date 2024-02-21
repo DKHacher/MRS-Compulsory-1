@@ -14,6 +14,9 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.animation.FadeTransition;
+import javafx.util.Duration;
+
 
 import javax.swing.*;
 import java.io.IOException;
@@ -36,32 +39,52 @@ public class LogInController implements Initializable {
         model.loadUsers();
         model.loginUserFromUsername(userId.getText());
         if (model.getObsLoggedInUser() != null) {
+            // Use the transition method to switch scenes after successful login
+            switchSceneWithFade("/MainPage.fxml", "MovieToons");
+        } else {
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Wrong username or password");
+            alert.showAndWait();
+        }
+    }
+
+
+
+    private void switchSceneWithFade(String fxmlPath, String title) {
+        Stage stage = (Stage) logInButton.getScene().getWindow();
+        Parent currentRoot = logInButton.getScene().getRoot();
+
+        FadeTransition fadeOut = new FadeTransition(Duration.seconds(0.5), currentRoot);
+        fadeOut.setFromValue(1);
+        fadeOut.setToValue(0);
+        fadeOut.setOnFinished(event -> {
             try {
-                // Load the main page
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/MainPage.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
                 Parent root = loader.load();
 
-                // Get the current stage (window) from the action event
-                Stage stage = (Stage) logInButton.getScene().getWindow();
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
 
-                // Set the new scene on the current stage
-                stage.setScene(new Scene(root));
-                stage.setTitle("MovieToons");
+                // Prepare fade in transition for new scene
+                FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.5), root);
+                fadeIn.setFromValue(0);
+                fadeIn.setToValue(1);
+                fadeIn.play();
+
+                stage.setTitle(title);
                 stage.centerOnScreen();
 
-                //Pass data to main page controller
+                // If the controller needs model data, pass it here
                 AppController controller = loader.getController();
                 controller.setModel(model);
 
             } catch (IOException e) {
                 e.printStackTrace();
-                Alert alert = new Alert(Alert.AlertType.ERROR, "Could not load MainPage.fxml");
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Could not load the page: " + title);
                 alert.showAndWait();
             }
-        } else {
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Wrong username or password");
-            alert.showAndWait();
-        }
+        });
+
+        fadeOut.play();
     }
 
 
