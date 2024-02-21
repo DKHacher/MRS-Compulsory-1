@@ -12,6 +12,8 @@ import javafx.scene.control.ListView;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
+import javafx.animation.FadeTransition;
+import javafx.util.Duration;
 
 
 import javafx.scene.control.Button;
@@ -85,43 +87,50 @@ public class AppController implements Initializable {
 
     @FXML
     private void logOut(ActionEvent event) {
-        try {
-            // Load the login page
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/LoginPage.fxml"));
-            Parent root = loader.load();
-
-            // Get the current stage (window) from any control
-            Stage stage = (Stage) sideMenuPane.getScene().getWindow();
-
-            // Set the login scene on the current stage
-            stage.setScene(new Scene(root));
-            stage.setTitle("Login");
-            stage.centerOnScreen(); // To center the login page
-        } catch (IOException e) {
-            e.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Could not load the login page.");
-            alert.showAndWait();
-        }
+        switchSceneWithFade("/LoginPage.fxml", "Login");
     }
 
     @FXML
     private void accountDetails(ActionEvent actionEvent) {
-        try {
-            // Load the login page
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/AccountPage.fxml"));
-            Parent root = loader.load();
+        switchSceneWithFade("/AccountPage.fxml", "Account");
+    }
 
-            // Get the current stage (window) from any control
-            Stage stage = (Stage) sideMenuPane.getScene().getWindow();
 
-            // Set the login scene on the current stage
-            stage.setScene(new Scene(root));
-            stage.setTitle("Account");
-            stage.centerOnScreen(); // To center the page
-        } catch (IOException e) {
-            e.printStackTrace();
-            Alert alert = new Alert(Alert.AlertType.ERROR, "Could not load the login page.");
-            alert.showAndWait();
-        }
+    private void switchSceneWithFade(String fxmlPath, String title) {
+        Stage stage = (Stage) sideMenuPane.getScene().getWindow();
+        Parent currentRoot = stage.getScene().getRoot();
+
+        // Prepare fade out transition for current scene
+        FadeTransition fadeOut = new FadeTransition(Duration.seconds(0.5), currentRoot);
+        fadeOut.setFromValue(1);
+        fadeOut.setToValue(0);
+
+        // Set the action to perform when fade out is completed
+        fadeOut.setOnFinished(event -> {
+            try {
+                // Load the new scene
+                FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+                Parent root = loader.load();
+
+                Scene scene = new Scene(root);
+
+                // Prepare fade in transition for new scene
+                FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.5), root);
+                fadeIn.setFromValue(0);
+                fadeIn.setToValue(1);
+                fadeIn.play();
+
+                stage.setScene(scene);
+                stage.setTitle(title);
+                stage.centerOnScreen();
+            } catch (IOException e) {
+                e.printStackTrace();
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Could not load the page.");
+                alert.showAndWait();
+            }
+        });
+
+        // Start the fade out transition
+        fadeOut.play();
     }
 }
