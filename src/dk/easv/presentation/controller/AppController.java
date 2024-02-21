@@ -9,6 +9,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
@@ -42,6 +46,14 @@ public class AppController implements Initializable {
     private AppModel model;
     private long timerStartMillis = 0;
     private String timerMsg = "";
+    @FXML
+    private HBox crowdHBox;
+    @FXML
+    private ScrollPane crowdScroll;
+    @FXML
+    private ScrollPane similarScroll;
+    @FXML
+    private HBox similarHBox;
 
     private void startTimer(String message){
         timerStartMillis = System.currentTimeMillis();
@@ -56,27 +68,34 @@ public class AppController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
-
     public void setModel(AppModel model) {
-        this.model = model;
-        lvUsers.setItems(model.getObsUsers());
-        lvTopForUser.setItems(model.getObsTopMovieSeen());
-        lvTopAvgNotSeen.setItems(model.getObsTopMovieNotSeen());
-        lvTopSimilarUsers.setItems(model.getObsSimilarUsers());
-        lvTopFromSimilar.setItems(model.getObsTopMoviesSimilarUsers());
-
-        startTimer("Load users");
+        List<TopMovie> movieListSimilar = new ArrayList<>();
+        List<Movie> movieListCrowd = new ArrayList<>();
         model.loadUsers();
-        stopTimer();
+        model.loadData(model.getObsLoggedInUser());
 
-        lvUsers.getSelectionModel().selectedItemProperty().addListener(
-                (observableValue, oldUser, selectedUser) -> {
-                    startTimer("Loading all data for user: " + selectedUser);
-                    model.loadData(selectedUser);
-                });
 
-        // Select the logged-in user in the listview, automagically trigger the listener above
-        lvUsers.getSelectionModel().select(model.getObsLoggedInUser());
+        movieListSimilar = model.getObsTopMoviesSimilarUsers();
+        movieListCrowd = model.getObsTopMovieNotSeen();
+
+        for (int i = 0; i< 20; i++){
+            Image image;
+            ImageView pic;
+            Random rng = new Random();
+            int rnd = rng.nextInt(0,11);
+            if (rnd == 1 || rnd == 8){
+                image = new Image("Movies/Movie_"+rnd+".png");
+            }
+            else{
+                image = new Image("Movies/Movie_"+rnd+".jpg");
+            }
+            pic = new ImageView(image);
+            pic.setFitWidth(150);
+            pic.setFitHeight(140);
+            similarHBox.getChildren().add(pic);
+        }
+
+
     }
 
 
@@ -134,4 +153,27 @@ public class AppController implements Initializable {
         // Start the fade out transition
         fadeOut.play();
     }
+
+    /*
+    public void setModel(AppModel model) {
+        this.model = model;
+        lvUsers.setItems(model.getObsUsers());
+        lvTopForUser.setItems(model.getObsTopMovieSeen());
+        lvTopAvgNotSeen.setItems(model.getObsTopMovieNotSeen());
+        lvTopSimilarUsers.setItems(model.getObsSimilarUsers());
+        lvTopFromSimilar.setItems(model.getObsTopMoviesSimilarUsers());
+
+        startTimer("Load users");
+        model.loadUsers();
+        stopTimer();
+
+        lvUsers.getSelectionModel().selectedItemProperty().addListener(
+                (observableValue, oldUser, selectedUser) -> {
+                    startTimer("Loading all data for user: " + selectedUser);
+                    model.loadData(selectedUser);
+                });
+
+    // Select the logged-in user in the listview, automagically trigger the listener above
+        lvUsers.getSelectionModel().select(model.getObsLoggedInUser());
+    }*/
 }
