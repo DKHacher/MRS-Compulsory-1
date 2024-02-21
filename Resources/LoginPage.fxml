@@ -9,31 +9,30 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="485.0" prefWidth="902.0" styleClass="anchor" stylesheets="@MRS-CSS.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.easv.presentation.controller.LogInController">
+<AnchorPane prefHeight="485.0" prefWidth="896.0" styleClass="anchor" stylesheets="@MRS-CSS.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dk.easv.presentation.controller.LogInController">
    <children>
-      <ImageView fitHeight="91.0" fitWidth="91.0" layoutX="405.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="91.0" fitWidth="91.0" layoutX="402.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Graphics/Icon.png" />
          </image>
       </ImageView>
-      <Button fx:id="logInButton" layoutX="427.0" layoutY="338.0" mnemonicParsing="false" onAction="#logIn" text="Login" />
-      <TextField fx:id="userId" layoutX="357.0" layoutY="247.0" prefHeight="26.0" prefWidth="186.0" text="Georgi Facello" />
-      <Label layoutX="357.0" layoutY="229.0" text="Username" textFill="WHITE">
+      <Button fx:id="logInButton" layoutX="424.0" layoutY="338.0" mnemonicParsing="false" onAction="#logIn" text="Login" />
+      <TextField fx:id="userId" layoutX="354.0" layoutY="247.0" prefHeight="26.0" prefWidth="186.0" text="Georgi Facello" />
+      <Label layoutX="354.0" layoutY="229.0" text="Username" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="358.0" layoutY="282.0" text="Password" textFill="WHITE">
+      <Label layoutX="355.0" layoutY="282.0" text="Password" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="404.0" layoutY="184.0" text="MovieToons" textFill="WHITE">
+      <Label layoutX="401.0" layoutY="184.0" text="MovieToons" textFill="WHITE">
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <PasswordField fx:id="passwordField" layoutX="358.0" layoutY="300.0" prefHeight="26.0" prefWidth="186.0" />
+      <PasswordField fx:id="passwordField" layoutX="355.0" layoutY="300.0" prefHeight="26.0" prefWidth="186.0" />
    </children>
 </AnchorPane>
