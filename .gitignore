@@ -125,4 +125,4 @@
 .idea/misc.xml
 *.xml
 *.iml
-*.xml
+/out/
