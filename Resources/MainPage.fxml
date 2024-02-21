@@ -37,120 +37,14 @@
             <Image url="@Graphics/Icon.png" />
          </image>
       </ImageView>
-      <ScrollPane layoutX="31.0" layoutY="78.0" minHeight="-Infinity" prefHeight="170.0" prefWidth="834.0">
+      <ScrollPane fx:id="SimilarScroll" layoutX="31.0" layoutY="78.0" minHeight="-Infinity" prefHeight="170.0" prefWidth="834.0">
          <content>
-            <HBox prefHeight="152.0" prefWidth="990.0" styleClass="Hbox">
-               <children>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Movies/Movie_1.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Movies/movie_2.jpg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Movies/movie_2.jpg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Movies/movie_2.jpg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Movies/movie_2.jpg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Movies/movie_2.jpg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Movies/movie_2.jpg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Movies/movie_2.jpg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Movies/movie_2.jpg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Movies/movie_2.jpg" />
-                     </image>
-                  </ImageView>
-               </children>
-            </HBox>
+            <HBox fx:id="Hbox" prefHeight="152.0" prefWidth="990.0" styleClass="Hbox" />
          </content>
       </ScrollPane>
-      <ScrollPane layoutX="31.0" layoutY="279.0" minHeight="-Infinity" prefHeight="170.0" prefWidth="834.0">
+      <ScrollPane fx:id="CrowdScroll" layoutX="31.0" layoutY="279.0" minHeight="-Infinity" prefHeight="170.0" prefWidth="834.0">
          <content>
-            <HBox prefHeight="152.0" prefWidth="990.0" styleClass="Hbox">
-               <children>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Movies/Movie_1.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Movies/movie_2.jpg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Movies/movie_2.jpg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Movies/movie_2.jpg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Movies/movie_2.jpg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Movies/movie_2.jpg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Movies/movie_2.jpg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Movies/movie_2.jpg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Movies/movie_2.jpg" />
-                     </image>
-                  </ImageView>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Movies/movie_2.jpg" />
-                     </image>
-                  </ImageView>
-               </children>
-            </HBox>
+            <HBox prefHeight="152.0" prefWidth="990.0" styleClass="Hbox" />
          </content>
       </ScrollPane>
       <Label layoutX="31.0" layoutY="259.0" text="Crowd favourites:" textFill="WHITE">

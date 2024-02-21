@@ -4,8 +4,12 @@ import dk.easv.entities.*;
 import dk.easv.presentation.model.AppModel;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.ListView;
-
+import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
+import javafx.scene.layout.HBox;
+import javafx.scene.image.ImageView;
 import java.net.URL;
 import java.util.*;
 
@@ -25,6 +29,19 @@ public class AppController implements Initializable {
     private AppModel model;
     private long timerStartMillis = 0;
     private String timerMsg = "";
+    @FXML
+    private ScrollPane CrowdScroll;
+    @FXML
+    private ScrollPane SimilarScroll;
+    @FXML
+    private HBox Hbox;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        ;
+    }
+
+
 
     private void startTimer(String message){
         timerStartMillis = System.currentTimeMillis();
@@ -35,11 +52,30 @@ public class AppController implements Initializable {
         System.out.println(timerMsg + " took : " + (System.currentTimeMillis() - timerStartMillis) + "ms");
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void setModel(AppModel model) {
+        List<TopMovie> movieListSimilar = new ArrayList<>();
+        List<Movie> movieListCrowd = new ArrayList<>();
+        model.loadUsers();
+        model.loadData(model.getObsLoggedInUser());
+
+
+        movieListSimilar = model.getObsTopMoviesSimilarUsers();
+        movieListCrowd = model.getObsTopMovieNotSeen();
+
+        for (int i = 0; i< 10; i++){
+            Image image;
+            ImageView pic;
+            image = new Image("Movies/Movie_1.png");
+            pic = new ImageView(image);
+            pic.setFitWidth(150);
+            pic.setFitHeight(140);
+            Hbox.getChildren().add(pic);
+        }
+
 
     }
 
+    /*
     public void setModel(AppModel model) {
         this.model = model;
         lvUsers.setItems(model.getObsUsers());
@@ -47,7 +83,6 @@ public class AppController implements Initializable {
         lvTopAvgNotSeen.setItems(model.getObsTopMovieNotSeen());
         lvTopSimilarUsers.setItems(model.getObsSimilarUsers());
         lvTopFromSimilar.setItems(model.getObsTopMoviesSimilarUsers());
-
         startTimer("Load users");
         model.loadUsers();
         stopTimer();
@@ -58,7 +93,8 @@ public class AppController implements Initializable {
                     model.loadData(selectedUser);
                 });
 
-        // Select the logged-in user in the listview, automagically trigger the listener above
+        Select the logged-in user in the listview, automagically trigger the listener above
         lvUsers.getSelectionModel().select(model.getObsLoggedInUser());
-    }
+
+    }*/
 }
