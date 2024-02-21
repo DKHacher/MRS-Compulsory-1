@@ -104,4 +104,7 @@ public class AppController implements Initializable {
         }
     }
 
+    @FXML
+    private void accountDetails(ActionEvent actionEvent) {
+    }
 }

@@ -13,6 +13,15 @@
     -fx-background-radius: 15;
 }
 
+.button-two {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+}
+
+.button-three {
+    -fx-background-color: transparent;
+    -fx-text-fill: #ff4326;
+}
 
 .hamburger-menu {
     -fx-background-color: transparent;
