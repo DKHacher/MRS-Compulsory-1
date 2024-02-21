@@ -17,8 +17,10 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/LoginPage.fxml"));
         primaryStage.setTitle("MovieToons");
         primaryStage.getIcons().add(new Image(Objects.requireNonNull(getClass().getResourceAsStream("/Graphics/Icon.png"))));
-        // primaryStage.setFullScreen(true);
-        primaryStage.setScene(new Scene(root));
+
+        Scene scene = new Scene(root);
+        scene.setFill(javafx.scene.paint.Color.valueOf("#131414"));
+        primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();
     }

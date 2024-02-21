@@ -113,6 +113,7 @@ public class AppController implements Initializable {
                 Parent root = loader.load();
 
                 Scene scene = new Scene(root);
+                scene.setFill(javafx.scene.paint.Color.valueOf("#131414"));
 
                 // Prepare fade in transition for new scene
                 FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.5), root);

@@ -56,13 +56,14 @@ public class LogInController implements Initializable {
         FadeTransition fadeOut = new FadeTransition(Duration.seconds(0.5), currentRoot);
         fadeOut.setFromValue(1);
         fadeOut.setToValue(0);
+
         fadeOut.setOnFinished(event -> {
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
                 Parent root = loader.load();
 
                 Scene scene = new Scene(root);
-                stage.setScene(scene);
+                scene.setFill(javafx.scene.paint.Color.valueOf("#131414"));
 
                 // Prepare fade in transition for new scene
                 FadeTransition fadeIn = new FadeTransition(Duration.seconds(0.5), root);
@@ -70,13 +71,9 @@ public class LogInController implements Initializable {
                 fadeIn.setToValue(1);
                 fadeIn.play();
 
+                stage.setScene(scene);
                 stage.setTitle(title);
                 stage.centerOnScreen();
-
-                // If the controller needs model data, pass it here
-                AppController controller = loader.getController();
-                controller.setModel(model);
-
             } catch (IOException e) {
                 e.printStackTrace();
                 Alert alert = new Alert(Alert.AlertType.ERROR, "Could not load the page: " + title);

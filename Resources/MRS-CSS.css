@@ -1,5 +1,6 @@
 .root {
     -fx-background-color: linear-gradient(from 0% 0% to 0% 100%, #262828, #131414);
+    -fx-background-size: cover;
 }
 
 .anchor {
