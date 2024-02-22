@@ -93,19 +93,15 @@ public class AppController implements Initializable {
         */
 
         //this is the loop for Similar movies
-        for (int i = 0; i< 20; i++){
-            Image image;
-            ImageView pic;
-            Random rng = new Random();
-            int rnd = rng.nextInt(1,11);
-            image = new Image("Movies/movie_"+rnd+".jpg");
-            pic = new ImageView(image);
-            pic.setFitWidth(115);
-            pic.setFitHeight(150);
-            similarHBox.getChildren().add(pic);
-        }
+        imageLoop(similarHBox);
 
         //the same loop for Crowd Favourites
+        imageLoop(crowdHBox);
+
+
+    }
+
+    private void imageLoop(HBox crowdHBox) {
         for (int i = 0; i< 20; i++){
             Image image;
             ImageView pic;
@@ -117,8 +113,6 @@ public class AppController implements Initializable {
             pic.setFitHeight(150);
             crowdHBox.getChildren().add(pic);
         }
-
-
     }
 
 
