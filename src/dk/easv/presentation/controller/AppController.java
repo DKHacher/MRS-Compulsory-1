@@ -12,6 +12,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
@@ -21,6 +22,7 @@ import javafx.util.Duration;
 
 
 import javafx.scene.control.Button;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
@@ -40,8 +42,6 @@ public class AppController implements Initializable {
     private StackPane sideMenuPane;
     @FXML
     private Button hamburgerButton, logOutBtn;
-
-
 
     private AppModel model;
     private long timerStartMillis = 0;
@@ -69,6 +69,7 @@ public class AppController implements Initializable {
 
     }
     public void setModel(AppModel model) {
+
         List<TopMovie> movieListSimilar = new ArrayList<>();
         List<Movie> movieListCrowd = new ArrayList<>();
         model.loadUsers();
@@ -93,15 +94,36 @@ public class AppController implements Initializable {
         */
 
         //this is the loop for Similar movies
-        imageLoop(similarHBox);
+        List<ImageView> imgViewListSimilar = imageLoop(similarHBox);
+        addEventToImageView(imgViewListSimilar, movieListSimilar, 0);
 
         //the same loop for Crowd Favourites
-        imageLoop(crowdHBox);
-
+        List<ImageView> imgViewListCrowd = imageLoop(crowdHBox);
+        addEventToImageView(imgViewListCrowd, movieListCrowd);
 
     }
 
-    private void imageLoop(HBox crowdHBox) {
+    private void addEventToImageView(List<ImageView> imgList, List<TopMovie> mvlist, int id) {
+        for (ImageView iv: imgList){
+            iv.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+                switchSceneWithFade("/MovieDetails.fxml", "Movie Details");
+
+                event.consume();
+            });
+        }
+    }
+    private void addEventToImageView(List<ImageView> imgList, List<Movie> mvlist) {
+        for (ImageView iv: imgList){
+            iv.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+                switchSceneWithFade("/MovieDetails.fxml", "Movie Details");
+
+                event.consume();
+            });
+        }
+    }
+
+    private List<ImageView> imageLoop(HBox crowdHBox) {
+        List<ImageView> imageViewList = new ArrayList<>();
         for (int i = 0; i< 20; i++){
             Image image;
             ImageView pic;
@@ -112,7 +134,10 @@ public class AppController implements Initializable {
             pic.setFitWidth(115);
             pic.setFitHeight(150);
             crowdHBox.getChildren().add(pic);
+            imageViewList.add(pic);
+
         }
+        return imageViewList;
     }
 
 
@@ -170,27 +195,4 @@ public class AppController implements Initializable {
         // Start the fade out transition
         fadeOut.play();
     }
-
-    /*
-    public void setModel(AppModel model) {
-        this.model = model;
-        lvUsers.setItems(model.getObsUsers());
-        lvTopForUser.setItems(model.getObsTopMovieSeen());
-        lvTopAvgNotSeen.setItems(model.getObsTopMovieNotSeen());
-        lvTopSimilarUsers.setItems(model.getObsSimilarUsers());
-        lvTopFromSimilar.setItems(model.getObsTopMoviesSimilarUsers());
-
-        startTimer("Load users");
-        model.loadUsers();
-        stopTimer();
-
-        lvUsers.getSelectionModel().selectedItemProperty().addListener(
-                (observableValue, oldUser, selectedUser) -> {
-                    startTimer("Loading all data for user: " + selectedUser);
-                    model.loadData(selectedUser);
-                });
-
-    // Select the logged-in user in the listview, automagically trigger the listener above
-        lvUsers.getSelectionModel().select(model.getObsLoggedInUser());
-    }*/
 }
