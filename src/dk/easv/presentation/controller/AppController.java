@@ -100,8 +100,8 @@ public class AppController implements Initializable {
             int rnd = rng.nextInt(1,11);
             image = new Image("Movies/movie_"+rnd+".jpg");
             pic = new ImageView(image);
-            pic.setFitWidth(150);
-            pic.setFitHeight(140);
+            pic.setFitWidth(115);
+            pic.setFitHeight(150);
             similarHBox.getChildren().add(pic);
         }
 
@@ -113,8 +113,8 @@ public class AppController implements Initializable {
             int rnd = rng.nextInt(1,11);
             image = new Image("Movies/movie_"+rnd+".jpg");
             pic = new ImageView(image);
-            pic.setFitWidth(150);
-            pic.setFitHeight(140);
+            pic.setFitWidth(115);
+            pic.setFitHeight(150);
             crowdHBox.getChildren().add(pic);
         }
 
