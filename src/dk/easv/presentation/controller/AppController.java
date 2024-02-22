@@ -97,10 +97,8 @@ public class AppController implements Initializable {
             Image image;
             ImageView pic;
             Random rng = new Random();
-            int rnd = rng.nextInt(0,11);
-
+            int rnd = rng.nextInt(1,11);
             image = new Image("Movies/movie_"+rnd+".jpg");
-
             pic = new ImageView(image);
             pic.setFitWidth(150);
             pic.setFitHeight(140);
@@ -112,10 +110,8 @@ public class AppController implements Initializable {
             Image image;
             ImageView pic;
             Random rng = new Random();
-            int rnd = rng.nextInt(0,11);
-
+            int rnd = rng.nextInt(1,11);
             image = new Image("Movies/movie_"+rnd+".jpg");
-
             pic = new ImageView(image);
             pic.setFitWidth(150);
             pic.setFitHeight(140);
