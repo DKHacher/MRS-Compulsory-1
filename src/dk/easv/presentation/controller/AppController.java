@@ -98,12 +98,9 @@ public class AppController implements Initializable {
             ImageView pic;
             Random rng = new Random();
             int rnd = rng.nextInt(0,11);
-            if (rnd == 1 || rnd == 8){
-                image = new Image("Movies/Movie_"+rnd+".png");
-            }
-            else{
-                image = new Image("Movies/Movie_"+rnd+".jpg");
-            }
+
+            image = new Image("Movies/movie_"+rnd+".jpg");
+
             pic = new ImageView(image);
             pic.setFitWidth(150);
             pic.setFitHeight(140);
@@ -116,12 +113,9 @@ public class AppController implements Initializable {
             ImageView pic;
             Random rng = new Random();
             int rnd = rng.nextInt(0,11);
-            if (rnd == 1 || rnd == 8){
-                image = new Image("Movies/Movie_"+rnd+".png");
-            }
-            else{
-                image = new Image("Movies/Movie_"+rnd+".jpg");
-            }
+
+            image = new Image("Movies/movie_"+rnd+".jpg");
+
             pic = new ImageView(image);
             pic.setFitWidth(150);
             pic.setFitHeight(140);
