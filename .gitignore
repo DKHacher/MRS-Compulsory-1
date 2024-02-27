@@ -126,3 +126,4 @@
 *.xml
 *.iml
 /out/
+Resources/user.txt

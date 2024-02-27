@@ -18,7 +18,14 @@ import javafx.util.Duration;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-public class MovieDetailsController  {
+public class MovieDetailsController implements Initializable {
+
+    private AppModel model;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        model = new AppModel();
+    }
 
     @FXML
     private void backButton(ActionEvent actionEvent) {
@@ -41,6 +48,10 @@ public class MovieDetailsController  {
                 // Load the new scene
                 FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
                 Parent root = loader.load();
+
+                AppController controller = loader.getController();
+
+                controller.setModel(model);
 
                 Scene scene = new Scene(root);
                 scene.setFill(javafx.scene.paint.Color.valueOf("#131414"));

@@ -1,8 +1,10 @@
 package dk.easv.presentation.controller;
 
+import dk.easv.presentation.model.AppModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -12,8 +14,17 @@ import javafx.util.Duration;
 
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class AccountController {
+public class AccountController implements Initializable {
+
+    private AppModel model;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        model = new AppModel();
+    }
     @FXML
     private void backButton(ActionEvent actionEvent) {
         switchSceneWithFade(actionEvent, "/MainPage.fxml", "Main Page");
@@ -35,6 +46,10 @@ public class AccountController {
                 // Load the new scene
                 FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
                 Parent root = loader.load();
+
+                AppController controller = loader.getController();
+
+                controller.setModel(model);
 
                 Scene scene = new Scene(root);
                 scene.setFill(javafx.scene.paint.Color.valueOf("#131414"));

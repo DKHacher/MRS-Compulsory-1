@@ -19,6 +19,7 @@ import javafx.util.Duration;
 
 
 import javax.swing.*;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -66,6 +67,9 @@ public class LogInController implements Initializable {
 
                 Scene scene = new Scene(root);
                 scene.setFill(javafx.scene.paint.Color.valueOf("#131414"));
+                FileWriter myWriter = new FileWriter("Resources\\user.txt");
+                myWriter.write(userId.getText());
+                myWriter.close();
 
                 AppController controller = loader.getController();
 

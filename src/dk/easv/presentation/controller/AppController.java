@@ -23,6 +23,8 @@ import javafx.util.Duration;
 
 import javafx.scene.control.Button;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
@@ -55,6 +57,7 @@ public class AppController implements Initializable {
     @FXML
     private HBox similarHBox;
 
+
     private void startTimer(String message){
         timerStartMillis = System.currentTimeMillis();
         timerMsg = message;
@@ -69,11 +72,26 @@ public class AppController implements Initializable {
 
     }
     public void setModel(AppModel model) {
-
         List<TopMovie> movieListSimilar = new ArrayList<>();
         List<Movie> movieListCrowd = new ArrayList<>();
+        String user = "";
+        try {
+            File myObj = new File("Resources\\user.txt");
+            Scanner myReader = new Scanner(myObj);
+            while (myReader.hasNextLine()) {
+                user = myReader.nextLine();
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+
         model.loadUsers();
-        model.loadData(model.getObsLoggedInUser());
+        if (model.getObsLoggedInUser() != null && !Objects.equals(user, "")){
+            model.loginUserFromUsername(user);
+            model.loadData(model.getObsLoggedInUser());
+        }
 
 
         movieListSimilar = model.getObsTopMoviesSimilarUsers();
